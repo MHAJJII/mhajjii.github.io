@@ -6,6 +6,7 @@
     <title>Mahan Hajiahmadi — Web Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* ===== CSS VARIABLES ===== */
         :root {
@@ -166,6 +167,16 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .nav-logo i {
+            background: linear-gradient(135deg, var(--accent), #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.3rem;
         }
         .nav-links {
             display: flex;
@@ -182,6 +193,14 @@
             border-radius: 10px;
             transition: all 0.3s ease;
             position: relative;
+        }
+        .nav-links a i {
+            margin-right: 6px;
+            font-size: 0.8rem;
+        }
+        [dir="rtl"] .nav-links a i {
+            margin-right: 0;
+            margin-left: 6px;
         }
         .nav-links a:hover, .nav-links a.active {
             color: var(--accent);
@@ -339,7 +358,7 @@
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             padding: 14px 28px;
             border-radius: 14px;
             font-size: 0.95rem;
@@ -348,6 +367,9 @@
             transition: all 0.3s ease;
             text-decoration: none;
             border: none;
+        }
+        .btn i {
+            font-size: 1rem;
         }
         .btn-primary {
             background: linear-gradient(135deg, var(--accent), #818cf8);
@@ -471,13 +493,18 @@
             margin-bottom: 60px;
         }
         .section-label {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             font-size: 0.85rem;
             font-weight: 700;
             color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 12px;
+        }
+        .section-label i {
+            font-size: 0.9rem;
         }
         .section-title {
             font-size: clamp(1.8rem, 3vw, 2.5rem);
@@ -541,6 +568,11 @@
             box-shadow: var(--shadow-lg);
             border-color: var(--accent);
         }
+        .stat-card .stat-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
         .stat-number {
             font-size: 2rem;
             font-weight: 800;
@@ -590,7 +622,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             margin-bottom: 20px;
         }
         .skill-card h3 {
@@ -654,17 +686,24 @@
         }
         .timeline-dot {
             position: absolute;
-            left: 15px;
+            left: 13px;
             top: 8px;
-            width: 20px; height: 20px;
+            width: 24px; height: 24px;
             border-radius: 50%;
             background: var(--accent);
             border: 4px solid var(--bg-primary);
             box-shadow: 0 0 0 3px var(--accent-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .timeline-dot i {
+            font-size: 0.5rem;
+            color: #fff;
         }
         [dir="rtl"] .timeline-dot {
             left: auto;
-            right: 15px;
+            right: 13px;
         }
         .timeline-card {
             background: var(--bg-card);
@@ -678,7 +717,9 @@
             border-color: var(--accent);
         }
         .timeline-date {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             background: var(--accent-glow);
             color: var(--accent);
             padding: 4px 14px;
@@ -686,6 +727,9 @@
             font-size: 0.8rem;
             font-weight: 600;
             margin-bottom: 12px;
+        }
+        .timeline-date i {
+            font-size: 0.7rem;
         }
         .timeline-card h3 {
             font-size: 1.15rem;
@@ -697,6 +741,12 @@
             color: var(--accent);
             font-weight: 600;
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .timeline-card h4 i {
+            font-size: 0.85rem;
         }
         .timeline-card p {
             color: var(--text-secondary);
@@ -737,14 +787,33 @@
         .portfolio-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
             opacity: 0;
             transition: opacity 0.3s;
             display: flex;
-            align-items: flex-end;
-            padding: 20px;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
         }
         .portfolio-card:hover .portfolio-overlay { opacity: 1; }
+        .portfolio-overlay a {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .portfolio-overlay a:hover {
+            background: var(--accent);
+            transform: scale(1.1);
+        }
         .portfolio-info {
             padding: 24px;
         }
@@ -752,6 +821,13 @@
             font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .portfolio-info h3 i {
+            color: var(--accent);
+            font-size: 0.95rem;
         }
         .portfolio-info p {
             color: var(--text-secondary);
@@ -829,11 +905,17 @@
             margin-bottom: 20px;
         }
         .form-group label {
-            display: block;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 8px;
             color: var(--text-secondary);
+        }
+        .form-group label i {
+            font-size: 0.8rem;
+            color: var(--accent);
         }
         .form-group input,
         .form-group textarea {
@@ -874,6 +956,13 @@
             cursor: pointer;
             transition: all 0.3s ease;
             font-family: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .submit-btn i {
+            font-size: 1rem;
         }
         .submit-btn:hover {
             transform: translateY(-3px);
@@ -909,7 +998,7 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             transition: all 0.3s ease;
         }
         .social-link:hover {
@@ -977,6 +1066,9 @@
             opacity: 0;
             transition: all 0.4s ease;
             z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         .toast.show {
             transform: translateY(0);
@@ -987,18 +1079,40 @@
             left: 30px;
         }
 
-        /* Typing cursor */
-        .typing-cursor {
-            display: inline-block;
-            width: 3px;
-            height: 1em;
-            background: var(--accent);
-            margin-left: 4px;
-            animation: blink 1s step-end infinite;
-            vertical-align: text-bottom;
+        /* Scroll to top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px; height: 48px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--accent), #818cf8);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: none;
+            box-shadow: var(--shadow-lg);
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
         }
-        @keyframes blink {
-            50% { opacity: 0; }
+        .scroll-top.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(99,102,241,0.5);
+        }
+        [dir="rtl"] .scroll-top {
+            right: auto;
+            left: 30px;
         }
     </style>
 </head>
@@ -1014,18 +1128,18 @@
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="nav-logo">MH</div>
+            <div class="nav-logo"><i class="fa-solid fa-code"></i> MH</div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home" class="active" data-en="Home" data-fa="خانه">Home</a></li>
-                <li><a href="#about" data-en="About" data-fa="درباره من">About</a></li>
-                <li><a href="#skills" data-en="Skills" data-fa="مهارت‌ها">Skills</a></li>
-                <li><a href="#experience" data-en="Experience" data-fa="تجربه‌ها">Experience</a></li>
-                <li><a href="#portfolio" data-en="Portfolio" data-fa="نمونه کارها">Portfolio</a></li>
-                <li><a href="#contact" data-en="Contact" data-fa="ارتباط">Contact</a></li>
+                <li><a href="#home" class="active" data-en="Home" data-fa="خانه"><i class="fa-solid fa-house"></i> <span>Home</span></a></li>
+                <li><a href="#about" data-en="About" data-fa="درباره من"><i class="fa-solid fa-user"></i> <span>About</span></a></li>
+                <li><a href="#skills" data-en="Skills" data-fa="مهارت‌ها"><i class="fa-solid fa-layer-group"></i> <span>Skills</span></a></li>
+                <li><a href="#experience" data-en="Experience" data-fa="تجربه‌ها"><i class="fa-solid fa-briefcase"></i> <span>Experience</span></a></li>
+                <li><a href="#portfolio" data-en="Portfolio" data-fa="نمونه کارها"><i class="fa-solid fa-folder-open"></i> <span>Portfolio</span></a></li>
+                <li><a href="#contact" data-en="Contact" data-fa="ارتباط"><i class="fa-solid fa-envelope"></i> <span>Contact</span></a></li>
             </ul>
             <div class="nav-controls">
-                <button class="nav-btn lang-btn" id="langToggle" onclick="toggleLang()" title="Switch Language">FA</button>
-                <button class="nav-btn" id="themeToggle" onclick="toggleTheme()" title="Toggle Theme">🌙</button>
+                <button class="nav-btn lang-btn" id="langToggle" onclick="toggleLang()" title="Switch Language"><i class="fa-solid fa-language"></i> FA</button>
+                <button class="nav-btn" id="themeToggle" onclick="toggleTheme()" title="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
                 <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobile()">
                     <span></span><span></span><span></span>
                 </button>
@@ -1049,11 +1163,13 @@
                     <span data-en="A passionate Web Developer crafting modern, responsive, and user-friendly websites using WordPress, HTML, CSS, JavaScript & PHP." data-fa="یک توسعه‌دهنده وب حرفه‌ای که وب‌سایت‌های مدرن، واکنش‌گرا و کاربرپسند را با وردپرس، HTML، CSS، جاوااسکریپت و PHP طراحی می‌کند.">A passionate Web Developer crafting modern, responsive, and user-friendly websites using WordPress, HTML, CSS, JavaScript & PHP.</span>
                 </p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary" data-en="Let's Talk" data-fa="ارتباط با من">
-                        ✉️ Let's Talk
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span data-en="Let's Talk" data-fa="ارتباط با من">Let's Talk</span>
                     </a>
-                    <a href="#portfolio" class="btn btn-outline" data-en="View Projects" data-fa="مشاهده پروژه‌ها">
-                        🔗 View Projects
+                    <a href="#portfolio" class="btn btn-outline">
+                        <i class="fa-solid fa-eye"></i>
+                        <span data-en="View Projects" data-fa="مشاهده پروژه‌ها">View Projects</span>
                     </a>
                 </div>
             </div>
@@ -1065,15 +1181,15 @@
                         <span class="avatar-initials">MH</span>
                     </div>
                     <div class="floating-card fc1">
-                        <div class="fc-icon">🌐</div>
+                        <div class="fc-icon"><i class="fa-brands fa-wordpress"></i></div>
                         <span data-en="WordPress Pro" data-fa="متخصص وردپرس">WordPress Pro</span>
                     </div>
                     <div class="floating-card fc2">
-                        <div class="fc-icon">💻</div>
+                        <div class="fc-icon"><i class="fa-solid fa-laptop-code"></i></div>
                         <span data-en="Full-Stack Dev" data-fa="توسعه فول‌استک">Full-Stack Dev</span>
                     </div>
                     <div class="floating-card fc3">
-                        <div class="fc-icon">🎨</div>
+                        <div class="fc-icon"><i class="fa-solid fa-palette"></i></div>
                         <span data-en="UI Designer" data-fa="طراح رابط کاربری">UI Designer</span>
                     </div>
                 </div>
@@ -1085,7 +1201,7 @@
     <section class="section" id="about" style="background: var(--bg-secondary);">
         <div class="section-container">
             <div class="section-header reveal">
-                <span class="section-label" data-en="About Me" data-fa="درباره من">About Me</span>
+                <span class="section-label"><i class="fa-solid fa-user-tie"></i> <span data-en="About Me" data-fa="درباره من">About Me</span></span>
                 <h2 class="section-title" data-en="Who I Am" data-fa="من کی هستم">Who I Am</h2>
                 <p class="section-desc" data-en="Get to know more about me, my background, and what drives my passion for web development." data-fa="بیشتر در مورد من، پیشینه من و انگیزه‌ام در توسعه وب بدانید.">Get to know more about me, my background, and what drives my passion for web development.</p>
             </div>
@@ -1099,14 +1215,17 @@
                     <p data-en="With expertise in WordPress, HTML, CSS, JavaScript, and PHP, I bring ideas to life on the web. Whether it's a custom WordPress theme, a responsive landing page, or a full web application — I deliver clean, maintainable code that exceeds expectations." data-fa="با تخصص در وردپرس، HTML، CSS، جاوااسکریپت و PHP، ایده‌ها را در وب زنده می‌کنم. چه یک قالب سفارشی وردپرس باشد، چه یک صفحه فرود واکنش‌گرا یا یک برنامه وب کامل — من کد تمیز و قابل نگهداری ارائه می‌دهم که فراتر از انتظارات است.">With expertise in WordPress, HTML, CSS, JavaScript, and PHP, I bring ideas to life on the web. Whether it's a custom WordPress theme, a responsive landing page, or a full web application — I deliver clean, maintainable code that exceeds expectations.</p>
                     <div class="about-stats">
                         <div class="stat-card">
+                            <div class="stat-icon"><i class="fa-solid fa-diagram-project"></i></div>
                             <div class="stat-number" data-count="50">0</div>
                             <div class="stat-label" data-en="Projects Done" data-fa="پروژه انجام شده">Projects Done</div>
                         </div>
                         <div class="stat-card">
+                            <div class="stat-icon"><i class="fa-solid fa-face-smile"></i></div>
                             <div class="stat-number" data-count="30">0</div>
                             <div class="stat-label" data-en="Happy Clients" data-fa="مشتری راضی">Happy Clients</div>
                         </div>
                         <div class="stat-card">
+                            <div class="stat-icon"><i class="fa-solid fa-award"></i></div>
                             <div class="stat-number" data-count="5">0</div>
                             <div class="stat-label" data-en="Years Experience" data-fa="سال تجربه">Years Experience</div>
                         </div>
@@ -1120,14 +1239,14 @@
     <section class="section" id="skills">
         <div class="section-container">
             <div class="section-header reveal">
-                <span class="section-label" data-en="My Skills" data-fa="مهارت‌های من">My Skills</span>
+                <span class="section-label"><i class="fa-solid fa-rocket"></i> <span data-en="My Skills" data-fa="مهارت‌های من">My Skills</span></span>
                 <h2 class="section-title" data-en="What I Do Best" data-fa="آنچه بهتر انجام می‌دهم">What I Do Best</h2>
                 <p class="section-desc" data-en="Technologies and tools I use to bring ideas to life on the web." data-fa="فناوری‌ها و ابزارهایی که برای زنده کردن ایده‌ها در وب استفاده می‌کنم.">Technologies and tools I use to bring ideas to life on the web.</p>
             </div>
             <div class="skills-grid">
                 <!-- WordPress -->
                 <div class="skill-card reveal">
-                    <div class="skill-icon" style="background: #dbeafe; color: #2563eb;">🌐</div>
+                    <div class="skill-icon" style="background: #dbeafe; color: #2563eb;"><i class="fa-brands fa-wordpress"></i></div>
                     <h3 data-en="WordPress Development" data-fa="توسعه وردپرس">WordPress Development</h3>
                     <p data-en="Custom themes, plugins, WooCommerce stores, and performance optimization for WordPress websites." data-fa="قالب‌های سفارشی، افزونه‌ها، فروشگاه‌های ووکامرس و بهینه‌سازی عملکرد برای وب‌سایت‌های وردپرس.">Custom themes, plugins, WooCommerce stores, and performance optimization for WordPress websites.</p>
                     <div class="skill-tags">
@@ -1139,7 +1258,7 @@
                 </div>
                 <!-- HTML/CSS -->
                 <div class="skill-card reveal">
-                    <div class="skill-icon" style="background: #fce7f3; color: #db2777;">🎨</div>
+                    <div class="skill-icon" style="background: #fce7f3; color: #db2777;"><i class="fa-brands fa-css3-alt"></i></div>
                     <h3 data-en="HTML & CSS" data-fa="HTML و CSS">HTML & CSS</h3>
                     <p data-en="Semantic HTML5, modern CSS3, Flexbox, Grid, animations, and responsive design for all devices." data-fa="HTML5 معنایی، CSS3 مدرن، فلکس‌باکس، گرید، انیمیشن‌ها و طراحی واکنش‌گرا برای تمام دستگاه‌ها.">Semantic HTML5, modern CSS3, Flexbox, Grid, animations, and responsive design for all devices.</p>
                     <div class="skill-tags">
@@ -1152,7 +1271,7 @@
                 </div>
                 <!-- JavaScript -->
                 <div class="skill-card reveal">
-                    <div class="skill-icon" style="background: #fef3c7; color: #d97706;">⚡</div>
+                    <div class="skill-icon" style="background: #fef3c7; color: #d97706;"><i class="fa-brands fa-js"></i></div>
                     <h3 data-en="JavaScript" data-fa="جاوااسکریپت">JavaScript</h3>
                     <p data-en="Interactive UIs, DOM manipulation, API integrations, and modern ES6+ JavaScript development." data-fa="رابط‌های کاربری تعاملی، دستکاری DOM، ادغام API و توسعه مدرن جاوااسکریپت ES6+.">Interactive UIs, DOM manipulation, API integrations, and modern ES6+ JavaScript development.</p>
                     <div class="skill-tags">
@@ -1164,7 +1283,7 @@
                 </div>
                 <!-- PHP -->
                 <div class="skill-card reveal">
-                    <div class="skill-icon" style="background: #e0e7ff; color: #4f46e5;">🔧</div>
+                    <div class="skill-icon" style="background: #e0e7ff; color: #4f46e5;"><i class="fa-brands fa-php"></i></div>
                     <h3 data-en="PHP Development" data-fa="توسعه PHP">PHP Development</h3>
                     <p data-en="Server-side scripting, database management, custom CMS solutions, and secure backend development." data-fa="اسکریپت‌نویسی سمت سرور، مدیریت پایگاه داده، راه‌حل‌های CMS سفارشی و توسعه بک‌اند امن.">Server-side scripting, database management, custom CMS solutions, and secure backend development.</p>
                     <div class="skill-tags">
@@ -1176,7 +1295,7 @@
                 </div>
                 <!-- UI/UX -->
                 <div class="skill-card reveal">
-                    <div class="skill-icon" style="background: #d1fae5; color: #059669;">✨</div>
+                    <div class="skill-icon" style="background: #d1fae5; color: #059669;"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
                     <h3 data-en="UI/UX Design" data-fa="طراحی رابط/تجربه کاربری">UI/UX Design</h3>
                     <p data-en="User-centered design, wireframing, prototyping, and creating beautiful interfaces users love." data-fa="طراحی کاربرمحور، وایرفریم، نمونه‌سازی و ایجاد رابط‌های زیبایی که کاربران دوست دارند.">User-centered design, wireframing, prototyping, and creating beautiful interfaces users love.</p>
                     <div class="skill-tags">
@@ -1187,7 +1306,7 @@
                 </div>
                 <!-- SEO -->
                 <div class="skill-card reveal">
-                    <div class="skill-icon" style="background: #fef9c3; color: #ca8a04;">📈</div>
+                    <div class="skill-icon" style="background: #fef9c3; color: #ca8a04;"><i class="fa-solid fa-chart-line"></i></div>
                     <h3 data-en="SEO & Performance" data-fa="سئو و عملکرد">SEO & Performance</h3>
                     <p data-en="Search engine optimization, Core Web Vitals, page speed optimization, and technical SEO." data-fa="بهینه‌سازی موتور جستجو، Core Web Vitals، بهینه‌سازی سرعت صفحه و سئوی فنی.">Search engine optimization, Core Web Vitals, page speed optimization, and technical SEO.</p>
                     <div class="skill-tags">
@@ -1204,44 +1323,44 @@
     <section class="section" id="experience" style="background: var(--bg-secondary);">
         <div class="section-container">
             <div class="section-header reveal">
-                <span class="section-label" data-en="Experience" data-fa="تجربه‌ها">Experience</span>
+                <span class="section-label"><i class="fa-solid fa-road"></i> <span data-en="Experience" data-fa="تجربه‌ها">Experience</span></span>
                 <h2 class="section-title" data-en="My Journey" data-fa="مسیر حرفه‌ای من">My Journey</h2>
                 <p class="section-desc" data-en="A timeline of my professional career and key milestones." data-fa="تایم‌لاین مسیر حرفه‌ای و نقاط عطف کلیدی من.">A timeline of my professional career and key milestones.</p>
             </div>
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
+                    <div class="timeline-dot"><i class="fa-solid fa-circle"></i></div>
                     <div class="timeline-card">
-                        <span class="timeline-date" data-en="2023 — Present" data-fa="۲۰۲۳ — اکنون">2023 — Present</span>
+                        <span class="timeline-date"><i class="fa-regular fa-calendar"></i> <span data-en="2023 — Present" data-fa="۲۰۲۳ — اکنون">2023 — Present</span></span>
                         <h3 data-en="Senior Web Developer" data-fa="توسعه‌دهنده ارشد وب">Senior Web Developer</h3>
-                        <h4 data-en="Freelance" data-fa="فریلنسر">Freelance</h4>
+                        <h4><i class="fa-solid fa-building"></i> <span data-en="Freelance" data-fa="فریلنسر">Freelance</span></h4>
                         <p data-en="Leading web development projects for various clients, delivering high-quality WordPress sites, custom web applications, and e-commerce solutions." data-fa="مدیریت پروژه‌های توسعه وب برای مشتریان مختلف، ارائه سایت‌های وردپرس باکیفیت، برنامه‌های وب سفارشی و راه‌حل‌های تجارت الکترونیک.">Leading web development projects for various clients, delivering high-quality WordPress sites, custom web applications, and e-commerce solutions.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
+                    <div class="timeline-dot"><i class="fa-solid fa-circle"></i></div>
                     <div class="timeline-card">
-                        <span class="timeline-date" data-en="2021 — 2023" data-fa="۲۰۲۱ — ۲۰۲۳">2021 — 2023</span>
+                        <span class="timeline-date"><i class="fa-regular fa-calendar"></i> <span data-en="2021 — 2023" data-fa="۲۰۲۱ — ۲۰۲۳">2021 — 2023</span></span>
                         <h3 data-en="Web Developer" data-fa="توسعه‌دهنده وب">Web Developer</h3>
-                        <h4 data-en="Web Agency" data-fa="آژانس وب">Web Agency</h4>
+                        <h4><i class="fa-solid fa-building"></i> <span data-en="Web Agency" data-fa="آژانس وب">Web Agency</span></h4>
                         <p data-en="Developed and maintained 20+ WordPress websites, implemented custom themes and plugins, and collaborated with designers to create pixel-perfect interfaces." data-fa="توسعه و نگهداری بیش از ۲۰ وب‌سایت وردپرس، پیاده‌سازی قالب‌ها و افزونه‌های سفارشی و همکاری با طراحان برای ایجاد رابط‌های کاربری دقیق.">Developed and maintained 20+ WordPress websites, implemented custom themes and plugins, and collaborated with designers to create pixel-perfect interfaces.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
+                    <div class="timeline-dot"><i class="fa-solid fa-circle"></i></div>
                     <div class="timeline-card">
-                        <span class="timeline-date" data-en="2020 — 2021" data-fa="۲۰۲۰ — ۲۰۲۱">2020 — 2021</span>
+                        <span class="timeline-date"><i class="fa-regular fa-calendar"></i> <span data-en="2020 — 2021" data-fa="۲۰۲۰ — ۲۰۲۱">2020 — 2021</span></span>
                         <h3 data-en="Junior Developer" data-fa="توسعه‌دهنده جونیور">Junior Developer</h3>
-                        <h4 data-en="Startup" data-fa="استارتاپ">Startup</h4>
+                        <h4><i class="fa-solid fa-building"></i> <span data-en="Startup" data-fa="استارتاپ">Startup</span></h4>
                         <p data-en="Started my professional journey building landing pages, email templates, and small business websites with HTML, CSS, and JavaScript." data-fa="شروع مسیر حرفه‌ای خود با ساخت صفحات فرود، قالب‌های ایمیل و وب‌سایت‌های کسب‌وکار کوچک با HTML، CSS و جاوااسکریپت.">Started my professional journey building landing pages, email templates, and small business websites with HTML, CSS, and JavaScript.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
+                    <div class="timeline-dot"><i class="fa-solid fa-circle"></i></div>
                     <div class="timeline-card">
-                        <span class="timeline-date" data-en="2019 — 2020" data-fa="۲۰۱۹ — ۲۰۲۰">2019 — 2020</span>
+                        <span class="timeline-date"><i class="fa-regular fa-calendar"></i> <span data-en="2019 — 2020" data-fa="۲۰۱۹ — ۲۰۲۰">2019 — 2020</span></span>
                         <h3 data-en="Self-Learning & Training" data-fa="خودآموزی و آموزش">Self-Learning & Training</h3>
-                        <h4 data-en="Online Courses & Bootcamps" data-fa="دوره‌های آنلاین و بوت‌کمپ">Online Courses & Bootcamps</h4>
+                        <h4><i class="fa-solid fa-graduation-cap"></i> <span data-en="Online Courses & Bootcamps" data-fa="دوره‌های آنلاین و بوت‌کمپ">Online Courses & Bootcamps</span></h4>
                         <p data-en="Completed intensive courses in web development, mastering HTML, CSS, JavaScript, PHP, and WordPress development fundamentals." data-fa="تکمیل دوره‌های فشرده در توسعه وب، تسلط بر مبانی HTML، CSS، جاوااسکریپت، PHP و توسعه وردپرس.">Completed intensive courses in web development, mastering HTML, CSS, JavaScript, PHP, and WordPress development fundamentals.</p>
                     </div>
                 </div>
@@ -1253,7 +1372,7 @@
     <section class="section" id="portfolio">
         <div class="section-container">
             <div class="section-header reveal">
-                <span class="section-label" data-en="Portfolio" data-fa="نمونه کارها">Portfolio</span>
+                <span class="section-label"><i class="fa-solid fa-images"></i> <span data-en="Portfolio" data-fa="نمونه کارها">Portfolio</span></span>
                 <h2 class="section-title" data-en="Featured Projects" data-fa="پروژه‌های منتخب">Featured Projects</h2>
                 <p class="section-desc" data-en="A selection of my recent work that showcases my skills and expertise." data-fa="مجموعه‌ای از کارهای اخیر من که مهارت‌ها و تخصص من را نشان می‌دهد.">A selection of my recent work that showcases my skills and expertise.</p>
             </div>
@@ -1261,10 +1380,13 @@
                 <div class="portfolio-card reveal">
                     <div class="portfolio-image">
                         <img src="https://images.pexels.com/photos/34803986/pexels-photo-34803986.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="E-Commerce Store">
-                        <div class="portfolio-overlay"></div>
+                        <div class="portfolio-overlay">
+                            <a href="#" title="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a href="#" title="Source Code"><i class="fa-brands fa-github"></i></a>
+                        </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3 data-en="E-Commerce Store" data-fa="فروشگاه آنلاین">E-Commerce Store</h3>
+                        <h3><i class="fa-solid fa-cart-shopping"></i> <span data-en="E-Commerce Store" data-fa="فروشگاه آنلاین">E-Commerce Store</span></h3>
                         <p data-en="A complete WooCommerce store with custom theme, payment gateway integration, and optimized checkout flow." data-fa="یک فروشگاه ووکامرس کامل با قالب سفارشی، ادغام درگاه پرداخت و فرآیند پرداخت بهینه‌شده.">A complete WooCommerce store with custom theme, payment gateway integration, and optimized checkout flow.</p>
                         <div class="portfolio-tech">
                             <span>WordPress</span>
@@ -1277,10 +1399,13 @@
                 <div class="portfolio-card reveal">
                     <div class="portfolio-image">
                         <img src="https://images.pexels.com/photos/3861951/pexels-photo-3861951.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Business Website">
-                        <div class="portfolio-overlay"></div>
+                        <div class="portfolio-overlay">
+                            <a href="#" title="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a href="#" title="Source Code"><i class="fa-brands fa-github"></i></a>
+                        </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3 data-en="Corporate Website" data-fa="وب‌سایت شرکتی">Corporate Website</h3>
+                        <h3><i class="fa-solid fa-building-columns"></i> <span data-en="Corporate Website" data-fa="وب‌سایت شرکتی">Corporate Website</span></h3>
                         <p data-en="A professional corporate website with modern design, CMS integration, blog section, and multi-language support." data-fa="یک وب‌سایت شرکتی حرفه‌ای با طراحی مدرن، ادغام CMS، بخش بلاگ و پشتیبانی چند زبانه.">A professional corporate website with modern design, CMS integration, blog section, and multi-language support.</p>
                         <div class="portfolio-tech">
                             <span>HTML5</span>
@@ -1293,10 +1418,13 @@
                 <div class="portfolio-card reveal">
                     <div class="portfolio-image">
                         <img src="https://images.pexels.com/photos/270700/pexels-photo-270700.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Web Application">
-                        <div class="portfolio-overlay"></div>
+                        <div class="portfolio-overlay">
+                            <a href="#" title="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a href="#" title="Source Code"><i class="fa-brands fa-github"></i></a>
+                        </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3 data-en="Admin Dashboard" data-fa="داشبورد مدیریت">Admin Dashboard</h3>
+                        <h3><i class="fa-solid fa-gauge-high"></i> <span data-en="Admin Dashboard" data-fa="داشبورد مدیریت">Admin Dashboard</span></h3>
                         <p data-en="A custom admin dashboard with real-time data visualization, user management, and responsive design for all screen sizes." data-fa="یک داشبورد مدیریت سفارشی با نمایش داده‌های بلادرنگ، مدیریت کاربران و طراحی واکنش‌گرا برای تمام اندازه صفحه‌ها.">A custom admin dashboard with real-time data visualization, user management, and responsive design for all screen sizes.</p>
                         <div class="portfolio-tech">
                             <span>JavaScript</span>
@@ -1314,35 +1442,35 @@
     <section class="section" id="contact" style="background: var(--bg-secondary);">
         <div class="section-container">
             <div class="section-header reveal">
-                <span class="section-label" data-en="Contact" data-fa="ارتباط">Contact</span>
+                <span class="section-label"><i class="fa-solid fa-comments"></i> <span data-en="Contact" data-fa="ارتباط">Contact</span></span>
                 <h2 class="section-title" data-en="Get In Touch" data-fa="در تماس باشید">Get In Touch</h2>
                 <p class="section-desc" data-en="Have a project in mind? Let's work together to build something amazing." data-fa="پروژه‌ای در ذهن دارید؟ بیایید با هم چیز شگفت‌انگیزی بسازیم.">Have a project in mind? Let's work together to build something amazing.</p>
             </div>
             <div class="contact-grid">
                 <div class="reveal">
                     <div class="contact-info-card">
-                        <div class="contact-icon">📧</div>
+                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
                         <div>
                             <h4 data-en="Email" data-fa="ایمیل">Email</h4>
                             <p>mahan@example.com</p>
                         </div>
                     </div>
                     <div class="contact-info-card">
-                        <div class="contact-icon">📱</div>
+                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
                         <div>
                             <h4 data-en="Phone" data-fa="تلفن">Phone</h4>
                             <p dir="ltr">+98 912 345 6789</p>
                         </div>
                     </div>
                     <div class="contact-info-card">
-                        <div class="contact-icon">📍</div>
+                        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
                         <div>
                             <h4 data-en="Location" data-fa="موقعیت">Location</h4>
                             <p data-en="Iran" data-fa="ایران">Iran</p>
                         </div>
                     </div>
                     <div class="contact-info-card">
-                        <div class="contact-icon">💼</div>
+                        <div class="contact-icon"><i class="fa-solid fa-handshake"></i></div>
                         <div>
                             <h4 data-en="Availability" data-fa="وضعیت">Availability</h4>
                             <p data-en="Open to freelance & full-time" data-fa="آماده فریلنس و تمام وقت">Open to freelance & full-time</p>
@@ -1352,23 +1480,26 @@
                 <form class="contact-form reveal" id="contactForm" onsubmit="handleSubmit(event)">
                     <div class="form-row">
                         <div class="form-group">
-                            <label data-en="Your Name" data-fa="نام شما">Your Name</label>
+                            <label><i class="fa-solid fa-user"></i> <span data-en="Your Name" data-fa="نام شما">Your Name</span></label>
                             <input type="text" id="name" required data-placeholder-en="John Doe" data-placeholder-fa="نام خود را وارد کنید" placeholder="John Doe">
                         </div>
                         <div class="form-group">
-                            <label data-en="Your Email" data-fa="ایمیل شما">Your Email</label>
+                            <label><i class="fa-solid fa-at"></i> <span data-en="Your Email" data-fa="ایمیل شما">Your Email</span></label>
                             <input type="email" id="email" required data-placeholder-en="john@example.com" data-placeholder-fa="example@email.com" placeholder="john@example.com">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label data-en="Subject" data-fa="موضوع">Subject</label>
+                        <label><i class="fa-solid fa-pen"></i> <span data-en="Subject" data-fa="موضوع">Subject</span></label>
                         <input type="text" id="subject" required data-placeholder-en="Project Inquiry" data-placeholder-fa="درخواست پروژه" placeholder="Project Inquiry">
                     </div>
                     <div class="form-group">
-                        <label data-en="Message" data-fa="پیام">Message</label>
+                        <label><i class="fa-solid fa-message"></i> <span data-en="Message" data-fa="پیام">Message</span></label>
                         <textarea id="message" required data-placeholder-en="Tell me about your project..." data-placeholder-fa="درباره پروژه خود بگویید..." placeholder="Tell me about your project..."></textarea>
                     </div>
-                    <button type="submit" class="submit-btn" data-en="Send Message ✉️" data-fa="ارسال پیام ✉️">Send Message ✉️</button>
+                    <button type="submit" class="submit-btn">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span data-en="Send Message" data-fa="ارسال پیام">Send Message</span>
+                    </button>
                 </form>
             </div>
         </div>
@@ -1378,30 +1509,26 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-social">
-                <a href="#" class="social-link" title="GitHub">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                </a>
-                <a href="#" class="social-link" title="LinkedIn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                </a>
-                <a href="#" class="social-link" title="Twitter/X">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                </a>
-                <a href="#" class="social-link" title="Instagram">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                </a>
-                <a href="#" class="social-link" title="Telegram">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-                </a>
+                <a href="#" class="social-link" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="social-link" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="social-link" title="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" class="social-link" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-link" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                <a href="#" class="social-link" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
             <p>
                 <span data-en="Designed & Developed with" data-fa="طراحی و توسعه با">Designed & Developed with</span>
-                <span class="footer-heart"> ❤️ </span>
+                <span class="footer-heart"> <i class="fa-solid fa-heart"></i> </span>
                 <span data-en="by Mahan Hajiahmadi" data-fa="توسط ماهان حاجی‌احمدی">by Mahan Hajiahmadi</span>
                 &copy; <span id="year"></span>
             </p>
         </div>
     </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
     <!-- Toast Notification -->
     <div class="toast" id="toast"></div>
@@ -1412,7 +1539,7 @@
 
         // ===== STATE =====
         let currentLang = 'en';
-        let currentTheme = 'dark'; // default dark
+        let currentTheme = 'dark';
 
         // ===== THEME TOGGLE =====
         function toggleTheme() {
@@ -1422,12 +1549,13 @@
         }
 
         function applyTheme() {
+            const btn = document.getElementById('themeToggle');
             if (currentTheme === 'dark') {
                 document.documentElement.setAttribute('data-theme', 'dark');
-                document.getElementById('themeToggle').textContent = '☀️';
+                btn.innerHTML = '<i class="fa-solid fa-sun"></i>';
             } else {
                 document.documentElement.removeAttribute('data-theme');
-                document.getElementById('themeToggle').textContent = '🌙';
+                btn.innerHTML = '<i class="fa-solid fa-moon"></i>';
             }
         }
 
@@ -1440,27 +1568,28 @@
 
         function applyLang() {
             const html = document.documentElement;
+            const langBtn = document.getElementById('langToggle');
             if (currentLang === 'fa') {
                 html.setAttribute('lang', 'fa');
                 html.setAttribute('dir', 'rtl');
-                document.getElementById('langToggle').textContent = 'EN';
+                langBtn.innerHTML = '<i class="fa-solid fa-language"></i> EN';
                 document.body.style.fontFamily = "'Vazirmatn', 'Inter', sans-serif";
             } else {
                 html.setAttribute('lang', 'en');
                 html.setAttribute('dir', 'ltr');
-                document.getElementById('langToggle').textContent = 'FA';
+                langBtn.innerHTML = '<i class="fa-solid fa-language"></i> FA';
                 document.body.style.fontFamily = "'Inter', sans-serif";
             }
 
             // Update all text elements with data attributes
             document.querySelectorAll('[data-en]').forEach(el => {
-                const text = el.getAttribute(`data-${currentLang}`);
+                const text = el.getAttribute('data-' + currentLang);
                 if (text) el.textContent = text;
             });
 
             // Update placeholders
             document.querySelectorAll('[data-placeholder-en]').forEach(el => {
-                const ph = el.getAttribute(`data-placeholder-${currentLang}`);
+                const ph = el.getAttribute('data-placeholder-' + currentLang);
                 if (ph) el.placeholder = ph;
             });
         }
@@ -1474,35 +1603,43 @@
         }
 
         // Close mobile on link click
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
+        document.querySelectorAll('.nav-links a').forEach(function(link) {
+            link.addEventListener('click', function() {
                 document.getElementById('mobileToggle').classList.remove('active');
                 document.getElementById('navLinks').classList.remove('open');
             });
         });
 
         // ===== NAVBAR SCROLL =====
-        const navbar = document.getElementById('navbar');
-        const sections = document.querySelectorAll('section[id]');
-        const navLinksAll = document.querySelectorAll('.nav-links a');
+        var navbarEl = document.getElementById('navbar');
+        var sectionsAll = document.querySelectorAll('section[id]');
+        var navLinksAll = document.querySelectorAll('.nav-links a');
+        var scrollTopBtn = document.getElementById('scrollTop');
 
-        window.addEventListener('scroll', () => {
+        window.addEventListener('scroll', function() {
             // Navbar shadow
             if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
+                navbarEl.classList.add('scrolled');
             } else {
-                navbar.classList.remove('scrolled');
+                navbarEl.classList.remove('scrolled');
+            }
+
+            // Scroll to top button
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
             }
 
             // Active nav link
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 120;
+            var current = '';
+            sectionsAll.forEach(function(section) {
+                var sectionTop = section.offsetTop - 120;
                 if (window.scrollY >= sectionTop) {
                     current = section.getAttribute('id');
                 }
             });
-            navLinksAll.forEach(link => {
+            navLinksAll.forEach(function(link) {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === '#' + current) {
                     link.classList.add('active');
@@ -1511,27 +1648,27 @@
         });
 
         // ===== REVEAL ON SCROLL =====
-        const revealElements = document.querySelectorAll('.reveal, .timeline-item');
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        var revealElements = document.querySelectorAll('.reveal, .timeline-item');
+        var revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        revealElements.forEach(el => revealObserver.observe(el));
+        revealElements.forEach(function(el) { revealObserver.observe(el); });
 
         // ===== COUNTER ANIMATION =====
-        const statNumbers = document.querySelectorAll('.stat-number[data-count]');
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        var statNumbers = document.querySelectorAll('.stat-number[data-count]');
+        var counterObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                    const el = entry.target;
-                    const target = parseInt(el.getAttribute('data-count'));
-                    let count = 0;
-                    const increment = target / 40;
-                    const timer = setInterval(() => {
+                    var el = entry.target;
+                    var target = parseInt(el.getAttribute('data-count'));
+                    var count = 0;
+                    var increment = target / 40;
+                    var timer = setInterval(function() {
                         count += increment;
                         if (count >= target) {
                             el.textContent = target + '+';
@@ -1545,27 +1682,27 @@
             });
         }, { threshold: 0.5 });
 
-        statNumbers.forEach(el => counterObserver.observe(el));
+        statNumbers.forEach(function(el) { counterObserver.observe(el); });
 
         // ===== FORM SUBMIT =====
         function handleSubmit(e) {
             e.preventDefault();
-            const toastEl = document.getElementById('toast');
+            var toastEl = document.getElementById('toast');
             if (currentLang === 'fa') {
-                toastEl.textContent = '✅ پیام شما با موفقیت ارسال شد!';
+                toastEl.innerHTML = '<i class="fa-solid fa-circle-check"></i> پیام شما با موفقیت ارسال شد!';
             } else {
-                toastEl.textContent = '✅ Message sent successfully!';
+                toastEl.innerHTML = '<i class="fa-solid fa-circle-check"></i> Message sent successfully!';
             }
             toastEl.classList.add('show');
-            setTimeout(() => toastEl.classList.remove('show'), 3500);
+            setTimeout(function() { toastEl.classList.remove('show'); }, 3500);
             document.getElementById('contactForm').reset();
         }
 
         // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                var target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth' });
                 }
@@ -1574,9 +1711,8 @@
 
         // ===== INIT =====
         (function init() {
-            // Load saved preferences
-            const savedTheme = localStorage.getItem('theme') || 'dark';
-            const savedLang = localStorage.getItem('lang') || 'en';
+            var savedTheme = localStorage.getItem('theme') || 'dark';
+            var savedLang = localStorage.getItem('lang') || 'en';
             currentTheme = savedTheme;
             currentLang = savedLang;
             applyTheme();
