@@ -1,0 +1,2133 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rememberr.ir | هیچ‌وقت فراموش نکن</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS RESET & VARIABLES ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --main: #1d7986;
+            --main-dark: #155a64;
+            --main-light: #2a9aaa;
+            --filler: #09bebc;
+            --filler-light: #0dd8d6;
+            --secondary: #ed725b;
+            --secondary-dark: #d4563f;
+            --secondary-light: #f09080;
+            --white: #ffffff;
+            --off-white: #f4fafa;
+            --gray-50: #f8fffe;
+            --gray-100: #e8f5f5;
+            --gray-200: #d0ebeb;
+            --gray-600: #4a6a6e;
+            --gray-800: #1a3a3e;
+            --dark: #0e2e33;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            color: var(--gray-800);
+            background: var(--white);
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(9,190,188,0.12), rgba(29,121,134,0.12));
+            color: var(--main);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            border: 1px solid rgba(9,190,188,0.2);
+        }
+
+        .section-title {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .section-desc {
+            font-size: 17px;
+            color: var(--gray-600);
+            max-width: 600px;
+            line-height: 1.9;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 14px;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(237, 114, 91, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(237, 114, 91, 0.45);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.4);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.7);
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            background: rgba(29,121,134,0.08);
+            color: var(--main);
+            border: 2px solid rgba(29,121,134,0.15);
+        }
+
+        .btn-ghost:hover {
+            background: rgba(29,121,134,0.15);
+            transform: translateY(-2px);
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: all 0.4s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 2px 30px rgba(14,46,51,0.08);
+            padding: 10px 0;
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--main), var(--filler));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 900;
+            font-size: 18px;
+            letter-spacing: -1px;
+            box-shadow: 0 4px 15px rgba(29,121,134,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--white);
+            transition: color 0.3s;
+        }
+
+        .navbar.scrolled .logo-text {
+            color: var(--dark);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.85);
+            font-weight: 500;
+            font-size: 15px;
+            padding: 8px 18px;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .navbar.scrolled .nav-links a {
+            color: var(--gray-600);
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.12);
+            color: var(--white);
+        }
+
+        .navbar.scrolled .nav-links a:hover {
+            background: rgba(29,121,134,0.08);
+            color: var(--main);
+        }
+
+        .nav-cta {
+            background: var(--secondary) !important;
+            color: var(--white) !important;
+            padding: 10px 24px !important;
+            border-radius: 12px !important;
+            font-weight: 600 !important;
+            box-shadow: 0 3px 12px rgba(237,114,91,0.3);
+        }
+
+        .nav-cta:hover {
+            background: var(--secondary-dark) !important;
+            color: var(--white) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(237,114,91,0.4) !important;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 26px;
+            height: 3px;
+            background: var(--white);
+            border-radius: 3px;
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
+
+        .navbar.scrolled .mobile-toggle span {
+            background: var(--dark);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(160deg, var(--dark) 0%, var(--main) 40%, var(--main-light) 70%, var(--filler) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-blob-1 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(9,190,188,0.2), transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            left: -200px;
+            animation: floatBlob 15s ease-in-out infinite;
+        }
+
+        .hero-blob-2 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(237,114,91,0.15), transparent 70%);
+            border-radius: 50%;
+            bottom: -150px;
+            right: -150px;
+            animation: floatBlob 12s ease-in-out infinite reverse;
+        }
+
+        .hero-blob-3 {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(9,190,188,0.12), transparent 70%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            animation: floatBlob 18s ease-in-out infinite;
+        }
+
+        @keyframes floatBlob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -40px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 2;
+            padding-top: 100px;
+        }
+
+        .hero-content {
+            color: var(--white);
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 28px;
+            border: 1px solid rgba(255,255,255,0.15);
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-eyebrow .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--filler);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--filler-light), var(--secondary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            line-height: 2;
+            opacity: 0.88;
+            margin-bottom: 40px;
+            max-width: 500px;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 50px;
+            animation: fadeInUp 0.8s ease 1s both;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-num {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--filler-light);
+        }
+
+        .hero-stat-label {
+            font-size: 13px;
+            opacity: 0.7;
+            margin-top: 4px;
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            position: relative;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        .hero-card-main {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 24px;
+            padding: 32px;
+            position: relative;
+            transform: perspective(1000px) rotateY(-5deg) rotateX(3deg);
+            transition: transform 0.5s ease;
+        }
+
+        .hero-card-main:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+        }
+
+        .hero-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .hero-card-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .hero-card-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-card-user-name {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .hero-card-user-role {
+            color: rgba(255,255,255,0.6);
+            font-size: 12px;
+        }
+
+        .reminder-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .reminder-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: rgba(255,255,255,0.08);
+            padding: 14px 18px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.3s;
+        }
+
+        .reminder-item:hover {
+            background: rgba(255,255,255,0.14);
+            transform: translateX(-4px);
+        }
+
+        .reminder-check {
+            width: 22px;
+            height: 22px;
+            border-radius: 7px;
+            border: 2px solid rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .reminder-check.done {
+            background: var(--filler);
+            border-color: var(--filler);
+        }
+
+        .reminder-check.done svg {
+            width: 12px;
+            height: 12px;
+            stroke: white;
+        }
+
+        .reminder-text {
+            flex: 1;
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .reminder-text.done-text {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+
+        .reminder-time {
+            color: var(--filler-light);
+            font-size: 12px;
+            font-weight: 600;
+            background: rgba(9,190,188,0.15);
+            padding: 4px 10px;
+            border-radius: 8px;
+        }
+
+        .hero-float-card {
+            position: absolute;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            padding: 16px 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            animation: floatCard 4s ease-in-out infinite;
+        }
+
+        .float-card-1 {
+            top: -20px;
+            left: -40px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation-delay: 0s;
+        }
+
+        .float-card-2 {
+            bottom: 20px;
+            left: -50px;
+            animation-delay: 1.5s;
+        }
+
+        .float-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .float-card-text {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .float-card-sub {
+            font-size: 11px;
+            color: var(--gray-600);
+        }
+
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== BRANDS / TRUST ===== */
+        .trust-bar {
+            padding: 50px 0;
+            background: var(--gray-50);
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .trust-bar .container {
+            text-align: center;
+        }
+
+        .trust-label {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .trust-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .trust-logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--gray-200);
+            letter-spacing: 2px;
+            transition: color 0.3s;
+        }
+
+        .trust-logo:hover {
+            color: var(--main);
+        }
+
+        /* ===== FEATURES ===== */
+        .features {
+            padding: 100px 0;
+            background: var(--white);
+            position: relative;
+        }
+
+        .features .container > .section-badge,
+        .features .container > .section-title,
+        .features .container > .section-desc {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border: 1px solid var(--gray-100);
+            border-radius: 20px;
+            padding: 36px 30px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--main), var(--filler));
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(29,121,134,0.12);
+            border-color: transparent;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 22px;
+        }
+
+        .feature-icon.teal {
+            background: linear-gradient(135deg, rgba(29,121,134,0.12), rgba(9,190,188,0.12));
+            color: var(--main);
+        }
+
+        .feature-icon.orange {
+            background: linear-gradient(135deg, rgba(237,114,91,0.12), rgba(237,114,91,0.06));
+            color: var(--secondary);
+        }
+
+        .feature-icon.cyan {
+            background: linear-gradient(135deg, rgba(9,190,188,0.12), rgba(9,190,188,0.06));
+            color: var(--filler);
+        }
+
+        .feature-card h3 {
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            font-size: 15px;
+            color: var(--gray-600);
+            line-height: 1.9;
+        }
+
+        /* ===== HOW IT WORKS ===== */
+        .how-it-works {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--gray-50), var(--white));
+        }
+
+        .how-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            position: relative;
+        }
+
+        .steps-grid::before {
+            content: '';
+            position: absolute;
+            top: 55px;
+            right: 16.66%;
+            left: 16.66%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--filler), var(--main), var(--secondary));
+            border-radius: 3px;
+            z-index: 0;
+        }
+
+        .step-card {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-num {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--white);
+            position: relative;
+        }
+
+        .step-num::before {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 3px dashed;
+            opacity: 0.25;
+            animation: spinSlow 20s linear infinite;
+        }
+
+        .step-1 .step-num { background: var(--main); }
+        .step-1 .step-num::before { border-color: var(--main); }
+        .step-2 .step-num { background: var(--filler); }
+        .step-2 .step-num::before { border-color: var(--filler); }
+        .step-3 .step-num { background: var(--secondary); }
+        .step-3 .step-num::before { border-color: var(--secondary); }
+
+        @keyframes spinSlow {
+            to { transform: rotate(360deg); }
+        }
+
+        .step-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .step-card p {
+            font-size: 15px;
+            color: var(--gray-600);
+            line-height: 1.9;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        /* ===== SHOWCASE ===== */
+        .showcase {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .showcase .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .showcase-image {
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(14,46,51,0.12);
+        }
+
+        .showcase-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .showcase-image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(29,121,134,0.15), transparent);
+        }
+
+        .showcase-content .section-title {
+            margin-bottom: 20px;
+        }
+
+        .showcase-content .section-desc {
+            margin-bottom: 32px;
+        }
+
+        .showcase-features {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-bottom: 36px;
+        }
+
+        .showcase-feat {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .showcase-feat-icon {
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(9,190,188,0.12), rgba(29,121,134,0.08));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--filler);
+            margin-top: 4px;
+        }
+
+        .showcase-feat h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+
+        .showcase-feat p {
+            font-size: 14px;
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(160deg, var(--dark) 0%, var(--main) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(9,190,188,0.15), transparent 70%);
+            top: -200px;
+            left: -100px;
+            border-radius: 50%;
+        }
+
+        .testimonials .section-badge {
+            background: rgba(255,255,255,0.1);
+            color: var(--filler-light);
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        .testimonials .section-title {
+            color: var(--white);
+        }
+
+        .testimonials .section-desc {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .test-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .test-card {
+            background: rgba(255,255,255,0.07);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.4s;
+        }
+
+        .test-card:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-6px);
+        }
+
+        .test-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 18px;
+            color: #fbbf24;
+            font-size: 16px;
+        }
+
+        .test-quote {
+            font-size: 15px;
+            color: rgba(255,255,255,0.85);
+            line-height: 2;
+            margin-bottom: 24px;
+        }
+
+        .test-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .test-avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 13px;
+            overflow: hidden;
+        }
+
+        .test-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .test-name {
+            font-weight: 700;
+            color: var(--white);
+            font-size: 15px;
+        }
+
+        .test-role {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* ===== PRICING ===== */
+        .pricing {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background: var(--white);
+            border: 2px solid var(--gray-100);
+            border-radius: 24px;
+            padding: 40px 32px;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .price-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(29,121,134,0.1);
+        }
+
+        .price-card.popular {
+            border-color: var(--main);
+            background: linear-gradient(180deg, rgba(29,121,134,0.03), var(--white));
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(29,121,134,0.15);
+        }
+
+        .price-card.popular:hover {
+            transform: scale(1.05) translateY(-6px);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -14px;
+            right: 50%;
+            transform: translateX(50%);
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            color: var(--white);
+            padding: 6px 24px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .price-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .price-subtitle {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 28px;
+        }
+
+        .price-amount {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--main);
+            margin-bottom: 4px;
+        }
+
+        .price-period {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 32px;
+        }
+
+        .price-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 32px;
+            text-align: right;
+        }
+
+        .price-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        .price-features li svg {
+            width: 18px;
+            height: 18px;
+            color: var(--filler);
+            flex-shrink: 0;
+        }
+
+        .price-btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: 14px;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .price-btn-outline {
+            background: transparent;
+            color: var(--main);
+            border: 2px solid var(--main);
+        }
+
+        .price-btn-outline:hover {
+            background: var(--main);
+            color: var(--white);
+        }
+
+        .price-btn-filled {
+            background: linear-gradient(135deg, var(--main), var(--main-dark));
+            color: var(--white);
+            border: none;
+            box-shadow: 0 4px 20px rgba(29,121,134,0.3);
+        }
+
+        .price-btn-filled:hover {
+            box-shadow: 0 8px 30px rgba(29,121,134,0.45);
+            transform: translateY(-2px);
+        }
+
+        /* ===== CTA ===== */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--gray-50), rgba(9,190,188,0.06));
+        }
+
+        .cta-box {
+            background: linear-gradient(160deg, var(--main), var(--main-dark));
+            border-radius: 32px;
+            padding: 70px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(9,190,188,0.3), transparent 70%);
+            top: -200px;
+            left: -100px;
+            border-radius: 50%;
+        }
+
+        .cta-box::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(237,114,91,0.2), transparent 70%);
+            bottom: -150px;
+            right: -50px;
+            border-radius: 50%;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 18px;
+            line-height: 1.4;
+        }
+
+        .cta-content p {
+            font-size: 17px;
+            color: rgba(255,255,255,0.8);
+            max-width: 500px;
+            margin: 0 auto 36px;
+            line-height: 1.9;
+        }
+
+        .cta-actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--dark);
+            padding: 70px 0 30px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 18px;
+        }
+
+        .footer-brand .logo-text {
+            color: var(--white);
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 2;
+            max-width: 300px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.5);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .footer-social a:hover {
+            background: var(--main);
+            color: var(--white);
+            border-color: var(--main);
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-col a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--filler);
+            padding-right: 8px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== COUNTER ANIMATION ===== */
+        .counter {
+            display: inline-block;
+        }
+
+        /* ===== MOBILE MENU ===== */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(14,46,51,0.97);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s;
+        }
+
+        .mobile-menu.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .mobile-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .mobile-close {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 32px;
+            cursor: pointer;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-desc { margin: 0 auto 40px; }
+            .hero-actions { justify-content: center; }
+            .hero-stats { justify-content: center; }
+            .hero-visual { display: none; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .test-grid { grid-template-columns: repeat(2, 1fr); }
+            .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+            .showcase .container { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .mobile-menu { display: flex; }
+            .features-grid { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: 1fr; gap: 32px; }
+            .steps-grid::before { display: none; }
+            .test-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
+            .price-card.popular { transform: scale(1); }
+            .price-card.popular:hover { transform: translateY(-6px); }
+            .cta-box { padding: 50px 28px; border-radius: 24px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+            .hero h1 { font-size: 32px; }
+        }
+
+        /* ===== SMOOTH SCROLL INDICATOR ===== */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--filler), var(--secondary));
+            z-index: 1001;
+            transition: width 0.1s;
+        }
+
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--main), var(--filler));
+            color: var(--white);
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 6px 25px rgba(29,121,134,0.35);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s;
+            z-index: 100;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 35px rgba(29,121,134,0.45);
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <div class="logo-icon">RE</div>
+                <span class="logo-text">Rememberr</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">امکانات</a></li>
+                <li><a href="#how">نحوه کار</a></li>
+                <li><a href="#showcase">درباره ما</a></li>
+                <li><a href="#testimonials">نظرات</a></li>
+                <li><a href="#pricing">تعرفه‌ها</a></li>
+                <li><a href="#cta" class="nav-cta">شروع رایگان</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="منو">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-close" id="mobileClose">&times;</button>
+        <a href="#features" onclick="closeMobile()">امکانات</a>
+        <a href="#how" onclick="closeMobile()">نحوه کار</a>
+        <a href="#showcase" onclick="closeMobile()">درباره ما</a>
+        <a href="#testimonials" onclick="closeMobile()">نظرات</a>
+        <a href="#pricing" onclick="closeMobile()">تعرفه‌ها</a>
+        <a href="#cta" onclick="closeMobile()" class="btn btn-primary">شروع رایگان</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-blob-1"></div>
+        <div class="hero-blob-2"></div>
+        <div class="hero-blob-3"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-eyebrow">
+                    <span class="dot"></span>
+                    پلتفرم هوشمند یادآوری و مدیریت وظایف
+                </div>
+                <h1>
+                    هیچ‌وقت دیگه<br>
+                    <span>فراموش نکن!</span>
+                </h1>
+                <p class="hero-desc">
+                    با ریممبر، تمام یادآوری‌ها، قرار ملاقات‌ها و وظایف مهم خودت رو در یک جا مدیریت کن. هوش مصنوعی ما بهترین زمان یادآوری رو بهت پیشنهاد میده.
+                </p>
+                <div class="hero-actions">
+                    <a href="#cta" class="btn btn-primary">
+                        شروع رایگان
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+                    </a>
+                    <a href="#how" class="btn btn-outline">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        ویدیو معرفی
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-num counter" data-target="50">0</div><span class="hero-stat-num">K+</span>
+                        <div class="hero-stat-label">کاربر فعال</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-num counter" data-target="99">0</div><span class="hero-stat-num">%</span>
+                        <div class="hero-stat-label">رضایت کاربران</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-num counter" data-target="2">0</div><span class="hero-stat-num">M+</span>
+                        <div class="hero-stat-label">یادآوری ارسال شده</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card-main">
+                    <div class="hero-card-header">
+                        <div class="hero-card-avatar">
+                            <img src="https://images.pexels.com/photos/3771051/pexels-photo-3771051.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=100&w=100" alt="avatar">
+                        </div>
+                        <div>
+                            <div class="hero-card-user-name">سارا احمدی</div>
+                            <div class="hero-card-user-role">وظایف امروز - ۳ مورد</div>
+                        </div>
+                    </div>
+                    <div class="reminder-list">
+                        <div class="reminder-item">
+                            <div class="reminder-check done">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <span class="reminder-text done-text">جلسه تیم توسعه</span>
+                            <span class="reminder-time">۰۹:۰۰</span>
+                        </div>
+                        <div class="reminder-item">
+                            <div class="reminder-check done">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <span class="reminder-text done-text">ارسال گزارش ماهانه</span>
+                            <span class="reminder-time">۱۱:۳۰</span>
+                        </div>
+                        <div class="reminder-item" style="border-color: rgba(237,114,91,0.3); background: rgba(237,114,91,0.08);">
+                            <div class="reminder-check" style="border-color: var(--secondary);"></div>
+                            <span class="reminder-text">قرار ملاقات با مشتری</span>
+                            <span class="reminder-time" style="background: rgba(237,114,91,0.15); color: var(--secondary);">۱۵:۰۰</span>
+                        </div>
+                        <div class="reminder-item">
+                            <div class="reminder-check"></div>
+                            <span class="reminder-text">بررسی ایمیل‌های مهم</span>
+                            <span class="reminder-time">۱۷:۰۰</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-float-card float-card-1">
+                    <div class="float-icon" style="background: rgba(9,190,188,0.12); color: var(--filler);">🔔</div>
+                    <div>
+                        <div class="float-card-text">یادآوری جدید!</div>
+                        <div class="float-card-sub">۳ دقیقه پیش</div>
+                    </div>
+                </div>
+                <div class="hero-float-card float-card-2">
+                    <div class="float-card-text" style="display:flex; align-items:center; gap:8px;">
+                        <span style="font-size:22px;">🎯</span>
+                        <span>۸۵٪ وظایف انجام شده</span>
+                    </div>
+                    <div style="height:6px; background:#e5e7eb; border-radius:6px; margin-top:10px; overflow:hidden;">
+                        <div style="height:100%; width:85%; background: linear-gradient(90deg, var(--filler), var(--main)); border-radius:6px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+        <div class="container">
+            <p class="trust-label">مورد اعتماد بیش از ۵۰۰ شرکت و استارتاپ ایرانی</p>
+            <div class="trust-logos">
+                <span class="trust-logo">دیجیکالا</span>
+                <span class="trust-logo">اسنپ</span>
+                <span class="trust-logo">تپسی</span>
+                <span class="trust-logo">کافه‌بازار</span>
+                <span class="trust-logo">فیلیمو</span>
+                <span class="trust-logo">ایوند</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <span class="section-badge">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                امکانات
+            </span>
+            <h2 class="section-title">قابلیت‌هایی که زندگیت رو متحول می‌کنه</h2>
+            <p class="section-desc">با ابزارهای قدرتمند ریممبر، هیچ‌وقت یادآوری مهمی رو از دست نده</p>
+
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon teal">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+                    </div>
+                    <h3>یادآوری هوشمند</h3>
+                    <p>هوش مصنوعی ما بهترین زمان یادآوری رو بر اساس عادات شما پیشنهاد میده و هیچ‌وقت وقتتون رو هدر نمیده.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon orange">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3>تقویم یکپارچه</h3>
+                    <p>تمام قرار ملاقات‌ها و رویدادهای خودتون رو در یک تقویم زیبا و کاربردی مشاهده و مدیریت کنید.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon cyan">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    </div>
+                    <h3>اشتراک‌گذاری تیمی</h3>
+                    <p>وظایف و یادآوری‌ها رو با اعضای تیمتون به اشتراک بذارید و همیشه هماهنگ باشید.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon orange">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    </div>
+                    <h3>گزارش عملکرد</h3>
+                    <p>با داشبورد آماری دقیق، عملکرد خودتون رو تحلیل کنید و بهره‌وری رو بالا ببرید.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon teal">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3>اپلیکیشن موبایل</h3>
+                    <p>از هرجا و در هر زمان با اپلیکیشن اندروید و iOS به یادآوری‌هاتون دسترسی داشته باشید.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon cyan">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                    </div>
+                    <h3>امنیت بالا</h3>
+                    <p>اطلاعات شما با رمزنگاری پیشرفته محافظت می‌شه و هیچ‌کس به داده‌هاتون دسترسی نداره.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how">
+        <div class="container">
+            <div class="how-header">
+                <span class="section-badge">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    نحوه کار
+                </span>
+                <h2 class="section-title">فقط سه قدم تا سازماندهی زندگیت</h2>
+                <p class="section-desc" style="margin:0 auto;">شروع کار با ریممبر فوق‌العاده ساده‌ست. همین الان ثبت‌نام کن!</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card step-1 reveal">
+                    <div class="step-num">۱</div>
+                    <h3>ثبت‌نام کن</h3>
+                    <p>در کمتر از ۳۰ ثانیه حساب کاربری خودت رو بساز. فقط یه ایمیل یا شماره موبایل لازمه.</p>
+                </div>
+
+                <div class="step-card step-2 reveal">
+                    <div class="step-num">۲</div>
+                    <h3>یادآوری بساز</h3>
+                    <p>وظایف و یادآوری‌هاتون رو اضافه کنید. حتی می‌تونید با صوت هم یادآوری ایجاد کنید.</p>
+                </div>
+
+                <div class="step-card step-3 reveal">
+                    <div class="step-num">۳</div>
+                    <h3>فراموش نکن!</h3>
+                    <p>ما در بهترین زمان بهتون یادآوری می‌کنیم. از طریق نوتیفیکیشن، پیامک یا ایمیل.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Section -->
+    <section class="showcase" id="showcase">
+        <div class="container">
+            <div class="showcase-image reveal">
+                <img src="https://images.pexels.com/photos/7698800/pexels-photo-7698800.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="تیم ریممبر">
+                <div class="showcase-image-overlay"></div>
+            </div>
+            <div class="showcase-content reveal">
+                <span class="section-badge">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                    چرا ریممبر؟
+                </span>
+                <h2 class="section-title">بهره‌وری خودت رو<br>چند برابر کن</h2>
+                <p class="section-desc">ریممبر فقط یه اپلیکیشن یادآوری نیست. یه دستیار هوشمند برای مدیریت بهتر زمان و افزایش بهره‌وری شماست.</p>
+
+                <div class="showcase-features">
+                    <div class="showcase-feat">
+                        <div class="showcase-feat-icon">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <div>
+                            <h4>همگام‌سازی خودکار</h4>
+                            <p>تمام دستگاه‌های شما همیشه هماهنگ هستند</p>
+                        </div>
+                    </div>
+                    <div class="showcase-feat">
+                        <div class="showcase-feat-icon">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <div>
+                            <h4>یادآوری‌های تکراری</h4>
+                            <p>وظایف روزانه، هفتگی و ماهانه رو خودکار کنید</p>
+                        </div>
+                    </div>
+                    <div class="showcase-feat">
+                        <div class="showcase-feat-icon">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <div>
+                            <h4>پشتیبانی ۲۴/۷</h4>
+                            <p>تیم پشتیبانی ما همیشه آماده کمک به شماست</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#pricing" class="btn btn-ghost">
+                    مشاهده تعرفه‌ها
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="test-header">
+                <span class="section-badge">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                    نظرات کاربران
+                </span>
+                <h2 class="section-title">کاربران ما چی میگن؟</h2>
+                <p class="section-desc" style="margin:0 auto;">هزاران کاربر از ریممبر برای مدیریت زندگی روزمره استفاده می‌کنن</p>
+            </div>
+
+            <div class="test-grid">
+                <div class="test-card reveal">
+                    <div class="test-stars">★★★★★</div>
+                    <p class="test-quote">«ریممبر کاملاً زندگی کاری من رو عوض کرد. دیگه هیچ جلسه‌ای رو از دست نمیدم و بهره‌وریم ۲ برابر شده.»</p>
+                    <div class="test-author">
+                        <div class="test-avatar" style="background: linear-gradient(135deg, var(--main), var(--filler)); display:flex; align-items:center; justify-content:center; color:white; font-weight:800; font-size:18px;">م</div>
+                        <div>
+                            <div class="test-name">مهدی رضایی</div>
+                            <div class="test-role">مدیر محصول - دیجیکالا</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="test-card reveal">
+                    <div class="test-stars">★★★★★</div>
+                    <p class="test-quote">«رابط کاربری فوق‌العاده ساده و زیبایی داره. حتی مادرم هم به راحتی ازش استفاده می‌کنه. واقعاً عالیه!»</p>
+                    <div class="test-author">
+                        <div class="test-avatar" style="background: linear-gradient(135deg, var(--secondary), var(--secondary-light)); display:flex; align-items:center; justify-content:center; color:white; font-weight:800; font-size:18px;">ن</div>
+                        <div>
+                            <div class="test-name">نازنین کریمی</div>
+                            <div class="test-role">طراح UX - اسنپ</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="test-card reveal">
+                    <div class="test-stars">★★★★★</div>
+                    <p class="test-quote">«قابلیت اشتراک‌گذاری تیمی ریممبر عالیه. کل تیم ما الان هماهنگ‌تر از همیشه کار می‌کنه.»</p>
+                    <div class="test-author">
+                        <div class="test-avatar" style="background: linear-gradient(135deg, var(--filler), #06918f); display:flex; align-items:center; justify-content:center; color:white; font-weight:800; font-size:18px;">ع</div>
+                        <div>
+                            <div class="test-name">علی محمدی</div>
+                            <div class="test-role">مدیرعامل - استارتاپ کدنو</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="pricing-header">
+                <span class="section-badge">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
+                    تعرفه‌ها
+                </span>
+                <h2 class="section-title">پلن مناسب خودت رو انتخاب کن</h2>
+                <p class="section-desc" style="margin:0 auto;">با پلن رایگان شروع کن، هر وقت خواستی ارتقا بده!</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="price-card reveal">
+                    <h3>رایگان</h3>
+                    <p class="price-subtitle">برای شروع عالیه</p>
+                    <div class="price-amount">۰</div>
+                    <div class="price-period">تومان / ماهانه</div>
+                    <ul class="price-features">
+                        <li>
+                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                            ۱۰ یادآوری فعال
+                        </li>
+                        <li>
+                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                            نوتیفیکیشن پوش
+                        </li>
+                        <li>
+                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                            تقویم پایه
+                        </li>
+                        <li>
+                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                            پشتیبانی ایمیلی
+                        </li>
+                    </ul>
+                    <button class="price-btn price-btn-outline">شروع رایگان</button>
+                </div>
+
+                <div class="price-card popular reveal">
+                    <span class="popular-badge">🔥 محبوب‌ترین</span>
+                    <h3>حرفه‌ای</h3>
+                    <p class="price-subtitle">برای افراد حرفه‌ای</p>
+                    <div class="price-amount">۴۹,۰۰۰</div>
+                    <div class="price-period">تومان / ماهانه</div>
+                    <ul class="price-features">
+                        <li>
+                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                            یادآوری نامحدود
+                        </li>
+                        <li>
+                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                            یادآوری هوش مصنوعی
+                        </li>
+                        <li>
+                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                            تقویم پیشرفته
+                        </li>
+                        <li>
+                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                            اعلان پیامکی
+                        </li>
+                        <li>
+                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                            پشتیبانی اختصاصی
+                        </li>
+                    </ul>
+                    <button class="price-btn price-btn-filled">خرید اشتراک</button>
+                </div>
+
+                <div class="price-card reveal">
+                    <h3>سازمانی</h3>
+                    <p class="price-subtitle">برای تیم‌ها و شرکت‌ها</p>
+                    <div class="price-amount">۱۲۹,۰۰۰</div>
+                    <div class="price-period">تومان / ماهانه / هر نفر</div>
+                    <ul class="price-features">
+                        <li>
+                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                            تمام امکانات حرفه‌ای
+                        </li>
+                        <li>
+                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                            داشبورد مدیریتی
+                        </li>
+                        <li>
+                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                            API اختصاصی
+                        </li>
+                        <li>
+                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                            اتصال به Slack و Teams
+                        </li>
+                        <li>
+                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                            پشتیبانی ۲۴/۷ تلفنی
+                        </li>
+                    </ul>
+                    <button class="price-btn price-btn-outline">تماس با فروش</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="cta">
+        <div class="container">
+            <div class="cta-box reveal">
+                <div class="cta-content">
+                    <h2>آماده‌ای زندگیت رو سازمان‌دهی کنی؟</h2>
+                    <p>همین الان ثبت‌نام کن و اولین یادآوری هوشمندت رو بساز. رایگانه و برای همیشه!</p>
+                    <div class="cta-actions">
+                        <a href="#" class="btn btn-primary" style="font-size:17px; padding:16px 40px;">
+                            ثبت‌نام رایگان
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+                        </a>
+                        <a href="#" class="btn btn-outline">
+                            صحبت با تیم فروش
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">RE</div>
+                        <span class="logo-text">Rememberr</span>
+                    </a>
+                    <p>ریممبر، دستیار هوشمند یادآوری شما. با ما هیچ‌وقت چیز مهمی رو فراموش نمی‌کنید.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="اینستاگرام">
+                            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="#" aria-label="تلگرام">
+                            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                        </a>
+                        <a href="#" aria-label="لینکدین">
+                            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="#" aria-label="توییتر">
+                            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>محصول</h4>
+                    <ul>
+                        <li><a href="#">امکانات</a></li>
+                        <li><a href="#">تعرفه‌ها</a></li>
+                        <li><a href="#">اپلیکیشن موبایل</a></li>
+                        <li><a href="#">افزونه مرورگر</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>شرکت</h4>
+                    <ul>
+                        <li><a href="#">درباره ما</a></li>
+                        <li><a href="#">وبلاگ</a></li>
+                        <li><a href="#">فرصت‌های شغلی</a></li>
+                        <li><a href="#">تماس با ما</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>پشتیبانی</h4>
+                    <ul>
+                        <li><a href="#">مرکز راهنما</a></li>
+                        <li><a href="#">سوالات متداول</a></li>
+                        <li><a href="#">حریم خصوصی</a></li>
+                        <li><a href="#">قوانین استفاده</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© ۱۴۰۴ ریممبر. تمامی حقوق محفوظ است.</span>
+                <span>ساخته شده با ❤️ در ایران</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="بازگشت به بالا">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 15l7-7 7 7"/></svg>
+    </button>
+
+    <script>
+        // ===== Navbar Scroll Effect =====
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('backToTop');
+        const scrollProgress = document.getElementById('scrollProgress');
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollY / docHeight) * 100;
+
+            // Navbar
+            if (scrollY > 80) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Scroll progress
+            scrollProgress.style.width = scrollPercent + '%';
+
+            // Back to top
+            if (scrollY > 500) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ===== Mobile Menu =====
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileClose = document.getElementById('mobileClose');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileClose.addEventListener('click', closeMobile);
+
+        function closeMobile() {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // ===== Scroll Reveal Animation =====
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('active');
+                    }, index * 100);
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ===== Counter Animation =====
+        const counters = document.querySelectorAll('.counter');
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const duration = 2000;
+                    const start = performance.now();
+
+                    function updateCounter(currentTime) {
+                        const elapsed = currentTime - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+                        counter.textContent = Math.floor(target * eased);
+
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    }
+
+                    requestAnimationFrame(updateCounter);
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(c => counterObserver.observe(c));
+
+        // ===== Smooth Scroll for Anchor Links =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ===== Parallax Effect on Hero Blobs =====
+        window.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 20;
+            const y = (e.clientY / window.innerHeight - 0.5) * 20;
+
+            document.querySelector('.hero-blob-1').style.transform = `translate(${x}px, ${y}px)`;
+            document.querySelector('.hero-blob-2').style.transform = `translate(${-x}px, ${-y}px)`;
+            document.querySelector('.hero-blob-3').style.transform = `translate(${x * 0.5}px, ${y * 0.5}px)`;
+        });
+
+        // ===== Typing effect for trust logos =====
+        const trustLogos = document.querySelectorAll('.trust-logo');
+        trustLogos.forEach((logo, i) => {
+            logo.style.opacity = '0';
+            logo.style.transform = 'translateY(10px)';
+            setTimeout(() => {
+                logo.style.transition = 'all 0.5s ease';
+                logo.style.opacity = '1';
+                logo.style.transform = 'translateY(0)';
+            }, 300 + i * 150);
+        });
+    </script>
+</body>
+</html>
